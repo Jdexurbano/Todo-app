@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block content %}
+
+<a href="{% url 'add-task' %}"><button>Add task</button></a>
+{% for task in tasks %}
+<h1><span>{{forloop.counter}} </span>{{task.title}}</h1>
+<a href="{% url 'view-task' task.pk %}"><button>View</button></a>
+{% endfor %} {% endblock %}

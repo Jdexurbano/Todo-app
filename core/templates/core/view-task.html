@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<a href="{% url 'index' %}"><button>Back</button></a>
+<h4>{{task.title}}</h4>
+<textarea name="" id="" cols="30" rows="10" readonly>
+{{task.description}}
+</textarea>
+<br />
+<a href="{% url 'update-task' task.pk %}"><button>Update</button></a>
+<a href="{%url 'delete-task' task.pk %}"><button>Delete</button></a>
+{% endblock %}

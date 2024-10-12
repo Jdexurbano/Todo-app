@@ -22,8 +22,4 @@ class CustomLogoutView(LogoutView):
 class CustomSignUpView(CreateView):
     template_name = 'userauth/signup.html'
     form_class = UserCreationForm
-
-    # def get(self, request, *args, **kwargs):
-    #     form = self.form_class
-    #     print(form)
-    #     return render(request,self.template_name,{'form':form})
+    success_url = reverse_lazy('login')

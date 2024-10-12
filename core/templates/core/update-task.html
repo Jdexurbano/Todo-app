@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<form action="" method="POST">
+<form action="{% url 'update-task' task.pk %}" method="POST">
   {% csrf_token %} {{form}}
   <br />
   <button type="submit">Update</button>

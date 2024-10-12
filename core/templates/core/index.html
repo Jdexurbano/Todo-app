@@ -4,4 +4,6 @@
 {% for task in tasks %}
 <h1><span>{{forloop.counter}} </span>{{task.title}}</h1>
 <a href="{% url 'view-task' task.pk %}"><button>View</button></a>
+{% empty %}
+<h1>No task</h1>
 {% endfor %} {% endblock %}

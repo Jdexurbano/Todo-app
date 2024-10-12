@@ -11,6 +11,18 @@ class TaskListView(LoginRequiredMixin,ListView):
     template_name = 'core/index.html'
     context_object_name = 'tasks'
 
+    #arrange the order of the list
+    def get_queryset(self):
+        model = self.model
+        queryset = model.objects.order_by('-created_at')
+        return queryset
+    
+    #display only the task of the login user
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tasks'] = context['tasks'].filter(user = self.request.user)
+        return context
+
 class TaskDetailView(LoginRequiredMixin,DetailView):
     model = Task
     template_name = 'core/view-task.html'

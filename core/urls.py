@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from .views import TaskListView,TaskDetailView,CreateTaskView,UpdateTaskView,DeleteTaskView
 urlpatterns = [
     path('',TaskListView.as_view(),name='index'),
@@ -6,4 +6,5 @@ urlpatterns = [
     path('create/',CreateTaskView.as_view(),name='add-task'),
     path('update/task/<int:pk>',UpdateTaskView.as_view(),name='update-task'),
     path('delete/task/<int:pk>',DeleteTaskView.as_view(),name='delete-task'),
+    path('login/',include('userauth.urls')),
 ]

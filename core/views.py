@@ -31,8 +31,13 @@ class TaskDetailView(LoginRequiredMixin,DetailView):
 class CreateTaskView(LoginRequiredMixin,CreateView):
     model = Task
     template_name = 'core/add-task.html'
-    fields = ('user','title','description')
+    fields = ('title','description')
     success_url = reverse_lazy('index')
+
+    #set the creator of the task base who is login
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(CreateTaskView,self).form_valid(form)
 
 class UpdateTaskView(LoginRequiredMixin,UpdateView):
     model = Task

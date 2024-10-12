@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView,LogoutView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -13,6 +13,10 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('index')
+
+class CustomLogoutView(LogoutView):
+    next_page = 'login'
+
 
 
 class CustomSignUpView(CreateView):

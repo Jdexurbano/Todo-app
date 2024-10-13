@@ -1,9 +1,30 @@
 {% extends 'base.html' %} {% block content %}
 
-<a href="{% url 'add-task' %}"><button>Add task</button></a>
-{% for task in tasks %}
-<h1><span>{{forloop.counter}} </span>{{task.title}}</h1>
-<a href="{% url 'view-task' task.pk %}"><button>View</button></a>
-{% empty %}
-<h1>No task</h1>
+<div class="task-main-container">
+  <div class="task-header">
+    <p>Tasks</p>
+    <a href="{% url 'add-task' %}"><button class="btn-add">Add task</button></a>
+  </div>
+  <div class="task-container">
+    {% for task in tasks %} {% if task.is_done %}
+    <div class="task-item done-task">
+      <p class="task-title">{{task.title}}</p>
+      <a href="{% url 'view-task' task.pk %}"
+        ><button class="btn-view">View</button></a
+      >
+    </div>
+    {% else %}
+    <div class="task-item">
+      <p class="task-title">{{task.title}}</p>
+      <a href="{% url 'view-task' task.pk %}"
+        ><button class="btn-view">View</button></a
+      >
+    </div>
+    {% endif %} {% empty %}
+
+    <div style="display: flex; justify-content: center">
+      <h1>No task!</h1>
+    </div>
+  </div>
+</div>
 {% endfor %} {% endblock %}

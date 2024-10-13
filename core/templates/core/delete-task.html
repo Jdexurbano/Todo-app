@@ -1,9 +1,17 @@
 {% extends 'base.html' %} {% block content %}
-<p>Are you sure you want to delete <strong>{{task.title}}</strong>?</p>
-<form method="POST">
-  {% csrf_token %}
-  <button type="submit" value="Delete">Delete</button>
-</form>
-<br />
-<a href="{% url 'view-task' task.pk %}"><button>Cancel</button></a>
+<div class="delete-container">
+  <p class="confirm-msg">
+    Are you sure you want to delete <strong>{{task.title}}</strong>?
+  </p>
+  <div class="btn-container">
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" value="Delete" class="delete-btn">Delete</button>
+    </form>
+
+    <a href="{% url 'view-task' task.pk %}"
+      ><button class="dl-cancel">Cancel</button></a
+    >
+  </div>
+</div>
 {% endblock %}

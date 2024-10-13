@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --background-color: #f2f6fe;
+  --logout-color: rgba(244, 22, 22, 0.568);
+  --create-color: rgba(117, 75, 229, 0.78);
+  --text-color: #1e1e1e;
+  --view-color: rgba(255, 127, 6, 0.28);
+  --view-text-color: #ff7f06;
+  --font: "Inter", sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--background-color);
+  font-family: var(--font);
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  padding: 0 100px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 200px 0 rgba(0, 0, 0, 0.19);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99%;
+}
+.title {
+  font-size: 32px;
+}
+.btn-logout {
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-size: 18px;
+  border: none;
+  background-color: var(--logout-color);
+  color: var(--background-color);
+  cursor: pointer;
+}
+
+.container {
+  margin-top: 20px;
+  padding: 30px 40px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+label {
+  font-size: 24px;
+  color: var(--text-colors);
+  font-weight: 300;
+}
+input {
+  margin: 10px 0;
+  padding: 10px 10px;
+  width: 370px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 0.5px solid rgba(70, 68, 68, 0.315);
+  outline: none;
+}
+
+.submit {
+  text-align: center;
+  padding: 0px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  width: 385px;
+  background-color: var(--logout-color);
+  color: var(--text-color);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.link-text {
+  text-align: center;
+}
+
+a {
+  color: var(--view-text-color);
+}
+.error {
+  color: rgb(190, 43, 43);
+}
+
+.task-main-container {
+  border-radius: 20px;
+  width: 400px;
+  height: 380px;
+  padding: 10px 30px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.btn-add {
+  cursor: pointer;
+  padding: 10px 7px;
+  width: 90px;
+  border: none;
+  background-color: var(--create-color);
+  color: white;
+  font-size: 15px;
+  border-radius: 40px;
+}
+
+.task-container {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  max-height: 80%;
+}
+
+.task-item {
+  border: 0.5px solid rgba(70, 68, 68, 0.199);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.done-task {
+  background-color: rgba(24, 223, 24, 0.349);
+}
+
+.btn-view {
+  padding: 10px 15px;
+  width: 70px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--view-color);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--view-text-color);
+  cursor: pointer;
+}
+
+.task-title::first-letter,
+.view-title::first-letter {
+  text-transform: uppercase;
+}
+
+.add-task-container,
+.view-task-container,
+.update-task-container {
+  width: 400px;
+  height: 385px;
+  padding: 20px 20px 10px 30px;
+  border-radius: 20px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.add-title,
+.add-description,
+.view-title {
+  font-size: 20px;
+  font-weight: 400;
+}
+.add-input,
+.update-input {
+  padding: 10px 15px;
+  width: 350px;
+}
+
+.add-textarea,
+.view-description,
+.update-textarea {
+  resize: none;
+  width: 350px;
+  padding: 10px 15px;
+  border: 0.5px solid rgba(70, 68, 68, 0.315);
+  border-radius: 10px;
+  outline: none;
+  font-family: var(--font);
+}
+
+.add-btn {
+  padding: 12px 10px;
+  margin-top: 5px;
+  float: right;
+  width: 100px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--create-color);
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+.fa-arrow-left {
+  color: #1e1e1e;
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+
+.back-arrow {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.update-btn,
+.delete-btn,
+.update-btn,
+.cancel-btn,
+.delete-btn,
+.dl-cancel {
+  font-size: 14px;
+  font-weight: 200;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.update-btn,
+.dl-cancel {
+  background-color: var(--create-color);
+  color: white;
+  margin-right: 5px;
+}
+.delete-btn,
+.cancel-btn {
+  background-color: var(--logout-color);
+  color: white;
+}
+
+.mark_label {
+  font-size: 16px;
+  font-weight: 400;
+}
+.mark_container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.done {
+  width: 15px;
+  height: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

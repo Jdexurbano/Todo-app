@@ -1,38 +1,42 @@
 {% extends 'base.html' %} {% load widget_tweaks %} {% block content %}
+<div class="container">
+  <form action="{% url 'signup' %}" method="POST">
+    {% csrf_token %}
 
-<form action="{% url 'signup' %}" method="POST">
-  {% csrf_token %}
+    <label for="username">Username</label>
+    <div>{% render_field form.username %}</div>
+    {% if form.username.errors %}
+    <div class="error">
+      {% for error in form.username.errors %}
+      <p>{{ error }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
 
-  <label for="username">Username</label>
-  <div>{% render_field form.username %}</div>
-  {% if form.username.errors %}
-  <div class="error">
-    {% for error in form.username.errors %}
-    <p>{{ error }}</p>
-    {% endfor %}
+    <label for="password1">Password</label>
+    <div>{% render_field form.password1 %}</div>
+    {% if form.password1.errors %}
+    <div class="error">
+      {% for error in form.password1.errors %}
+      <p>{{ error }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <label for="password2">Confirm Password</label>
+    <div>{% render_field form.password2 %}</div>
+    {% if form.password2.errors %}
+    <div class="error">
+      {% for error in form.password2.errors %}
+      <p>{{ error }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <button type="submit" class="submit"><p>Register</p></button>
+  </form>
+  <div class="link-text">
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
   </div>
-  {% endif %}
-
-  <label for="password1">Password</label>
-  <div>{% render_field form.password1 %}</div>
-  {% if form.password1.errors %}
-  <div class="error">
-    {% for error in form.password1.errors %}
-    <p>{{ error }}</p>
-    {% endfor %}
-  </div>
-  {% endif %}
-
-  <label for="password2">Confirm Password</label>
-  <div>{% render_field form.password2 %}</div>
-  {% if form.password2.errors %}
-  <div class="error">
-    {% for error in form.password2.errors %}
-    <p>{{ error }}</p>
-    {% endfor %}
-  </div>
-  {% endif %}
-
-  <button type="submit">Create</button>
-</form>
+</div>
 {% endblock %}

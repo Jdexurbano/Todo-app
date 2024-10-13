@@ -1,10 +1,19 @@
 {% extends 'base.html' %} {% block content %}
-<a href="{% url 'index' %}"><button>Back</button></a>
-<h4>{{task.title}}</h4>
-<textarea name="" id="" cols="30" rows="10" readonly>
+<div class="view-task-container">
+  <a href="{% url 'index' %}" class="back-arrow"
+    ><i class="fa fa-arrow-left"></i
+  ></a>
+  <h4 class="view-title">{{task.title}}</h4>
+  <textarea name="" id="" rows="10" readonly class="view-description">
 {{task.description}}
-</textarea>
-<br />
-<a href="{% url 'update-task' task.pk %}"><button>Update</button></a>
-<a href="{%url 'delete-task' task.pk %}"><button>Delete</button></a>
+</textarea
+  >
+
+  <a href="{% url 'update-task' task.pk %}"
+    ><button class="update-btn">Update</button></a
+  >
+  <a href="{%url 'delete-task' task.pk %}"
+    ><button class="delete-btn">Delete</button></a
+  >
+</div>
 {% endblock %}

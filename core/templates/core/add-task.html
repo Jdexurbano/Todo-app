@@ -1,8 +1,17 @@
-{% extends 'base.html' %} {% block content %}
-<a href="{% url 'index' %}"><button>Back</button></a>
-<form action="{% url 'add-task' %}" method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <button type="submit">Create</button>
-</form>
+{% extends 'base.html' %} {% load widget_tweaks %} {% block content %}
+<div class="add-task-container">
+  <a href="{% url 'index' %}" class="back-arrow"
+    ><i class="fa fa-arrow-left"></i
+  ></a>
+  <form action="{% url 'add-task' %}" method="POST" class="form-delete">
+    {% csrf_token %}
 
+    <label for="title" class="add-title">Title</label>
+    <div>{% render_field form.title class="add-input"%}</div>
+    <label for="description" class="add-description">Description</label>
+    <div>{% render_field form.description class="add-textarea" %}</div>
+
+    <button type="submit" class="add-btn">Create</button>
+  </form>
+</div>
 {% endblock %}

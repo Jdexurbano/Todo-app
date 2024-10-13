@@ -1,12 +1,21 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load widget_tweaks %} {% block content %}
 
-<form action="{% url 'update-task' task.pk %}" method="POST">
-  {% csrf_token %} {{form}}
-  <br />
-  <button type="submit">Update</button>
-</form>
+<div class="update-task-container">
+  <form action="{% url 'update-task' task.pk %}" method="POST" id="update_form">
+    {% csrf_token %}
 
-<br />
-<a href="{% url 'view-task' task.pk %}"><button>Cancel</button></a>
+    <div>{% render_field form.title class="update-input"%}</div>
+    <div>{% render_field form.description class="update-textarea"%}</div>
+    <div class="mark_container">
+      <label for="is_done" class="mark_label">Done</label>
+      {% render_field form.is_done class="done"%}
+    </div>
+  </form>
+  <button type="submit" form="update_form" class="update-btn">Update</button>
+
+  <a href="{% url 'view-task' task.pk %}"
+    ><button class="cancel-btn">Cancel</button></a
+  >
+</div>
 
 {% endblock %}

@@ -1,14 +1,12 @@
 {% block navbar %}
 <header>
   <nav>
+    <h1 class="title">Todo</h1>
     {% if request.user.is_authenticated %}
-    <h1>{{request.user}}</h1>
-    <form action="{% url 'logout' %}" method="POST">
+    <form action="{% url 'logout' %}" method="POST" class="form-logout">
       {% csrf_token %}
-      <button type="submit">Logout</button>
+      <button type="submit" class="btn-logout">Logout</button>
     </form>
-    {% else %}
-    <h1>Not login</h1>
     {% endif %}
   </nav>
 </header>

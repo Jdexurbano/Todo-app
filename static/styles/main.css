@@ -49,6 +49,7 @@ nav {
 
 .container {
   margin-top: 20px;
+  width: 400px;
   padding: 30px 40px;
   border-radius: 15px;
   background-color: white;

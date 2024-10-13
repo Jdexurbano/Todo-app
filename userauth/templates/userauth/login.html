@@ -10,6 +10,15 @@
     <label for="password">Password</label>
     <div>{% render_field form.password class="password-input" %}</div>
 
+    <!-- render errors fo wrong credentials -->
+    {% if form.non_field_errors %}
+    <div class="error">
+      {% for error in form.non_field_errors %}
+      <p>{{ error }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+
     <button type="submit" class="submit"><p>Login</p></button>
   </form>
 
